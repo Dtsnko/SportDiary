@@ -107,6 +107,7 @@ namespace SportDiary
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.ExecuteNonQuery();
                     CloseConnection();
+                    MessageBox.Show("Успешно удалено");
                 }
             }
         }
@@ -136,6 +137,16 @@ namespace SportDiary
             }
             else
                 return list;
+        }
+
+        public void ExecuteCommand(string command)
+        {
+            if(OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
         }
 
         ////Count statement
