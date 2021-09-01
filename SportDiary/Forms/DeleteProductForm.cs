@@ -16,8 +16,8 @@ namespace SportDiary.Forms
         public DeleteProductForm()
         {
             InitializeComponent();
-            DBConnect connect = new DBConnect();
-            List<string>[] products = connect.Select();
+            DBProductsConnect connect = new DBProductsConnect();
+            List<string>[] products = connect.SelectAllProducts();
             for (int i = 0; i < products[0].Count; i++)
             {
                 listBoxOfProducts.Items.Add(products[1][i] + " " + products[2][i] + "кал.");
@@ -33,8 +33,8 @@ namespace SportDiary.Forms
             List<int> checkedId = new List<int>();
             foreach (int c in listBoxOfProducts.CheckedIndices)
                 checkedId.Add(allId[c]);
-            DBConnect connect = new DBConnect();
-            connect.Delete(checkedId);
+            DBProductsConnect connect = new DBProductsConnect();
+            connect.DeleteProduct(checkedId);
             Close();
         }
     }

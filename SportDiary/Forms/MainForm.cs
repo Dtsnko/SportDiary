@@ -37,5 +37,11 @@ namespace SportDiary
             delproduct.Show();
             
         }
+
+        private void updateProductButton_Click(object sender, EventArgs e)
+        {
+            UpdateProductForm upd = new UpdateProductForm();
+            upd.Show();
+        }
     }
 }

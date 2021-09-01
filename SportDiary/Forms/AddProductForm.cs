@@ -21,8 +21,8 @@ namespace SportDiary.Forms
         private void ButtonAcceptNewProduct_Click(object sender, EventArgs e)
         {
                 Product newProduct = new Product(textBoxProductName.Text, numericUpDownCalories.Value, numericUpDownProteins.Value, numericUpDownFats.Value, numericUpDownCarbohydrates.Value);
-                DBConnect db = new DBConnect();
-                db.Insert(newProduct);
+                DBProductsConnect db = new DBProductsConnect();
+                db.InsertProduct(newProduct);
                 Close();
                 
         }

@@ -40,6 +40,10 @@ namespace SportDiary
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
+            this.updateProductButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddNewMeat
@@ -65,7 +69,7 @@ namespace SportDiary
             // 
             this.AddNewProduct.Location = new System.Drawing.Point(37, 181);
             this.AddNewProduct.Name = "AddNewProduct";
-            this.AddNewProduct.Size = new System.Drawing.Size(181, 92);
+            this.AddNewProduct.Size = new System.Drawing.Size(118, 92);
             this.AddNewProduct.TabIndex = 2;
             this.AddNewProduct.Text = "Добавить новый продукт";
             this.AddNewProduct.UseVisualStyleBackColor = true;
@@ -73,9 +77,9 @@ namespace SportDiary
             // 
             // DeleteProduct
             // 
-            this.DeleteProduct.Location = new System.Drawing.Point(224, 181);
+            this.DeleteProduct.Location = new System.Drawing.Point(161, 181);
             this.DeleteProduct.Name = "DeleteProduct";
-            this.DeleteProduct.Size = new System.Drawing.Size(181, 92);
+            this.DeleteProduct.Size = new System.Drawing.Size(108, 92);
             this.DeleteProduct.TabIndex = 3;
             this.DeleteProduct.Text = "Удалить продукт";
             this.DeleteProduct.UseVisualStyleBackColor = true;
@@ -144,11 +148,52 @@ namespace SportDiary
             this.listBox3.Size = new System.Drawing.Size(270, 116);
             this.listBox3.TabIndex = 10;
             // 
+            // updateProductButton
+            // 
+            this.updateProductButton.Location = new System.Drawing.Point(275, 181);
+            this.updateProductButton.Name = "updateProductButton";
+            this.updateProductButton.Size = new System.Drawing.Size(130, 92);
+            this.updateProductButton.TabIndex = 11;
+            this.updateProductButton.Text = "Обновить продукт";
+            this.updateProductButton.UseVisualStyleBackColor = true;
+            this.updateProductButton.Click += new System.EventHandler(this.updateProductButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Meals";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(34, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Products";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 310);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 17);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Graphics";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 547);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.updateProductButton);
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
@@ -180,6 +225,10 @@ namespace SportDiary
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Button updateProductButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

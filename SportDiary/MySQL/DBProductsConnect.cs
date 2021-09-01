@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace SportDiary
 {
-    public class DBConnect
+    public class DBProductsConnect
     {
         private MySqlConnection connection;
         private string server;
@@ -16,7 +16,7 @@ namespace SportDiary
         private string uid;
         private string password;
 
-        public DBConnect()
+        public DBProductsConnect()
         {
             Initialize();
 
@@ -43,10 +43,10 @@ namespace SportDiary
                 switch(ex.Number)
                 {
                     case 0:
-                        MessageBox.Show("Cannot connect to database");
+                        MessageBox.Show("Невозможно подключиться к базе данных");
                         break;
                     case 1045:
-                        MessageBox.Show("Invalid password/username");
+                        MessageBox.Show("Не правильный логин/пароль");
                         break;
                 }
                 return false;
@@ -67,7 +67,7 @@ namespace SportDiary
                 return false;
             }
         }
-        public void Insert(Product prod)
+        public void InsertProduct(Product prod)
         {
             if(prod.controlBit < 5 || prod.Name == null)
             {
@@ -85,18 +85,31 @@ namespace SportDiary
             }
         }
 
-        //public void Update(int id, string newName = "newName", int newCalories = 0)
-        //{
-        //    string query = $"UPDATE Products SET name='{newName}, calories='{newCalories}' WHERE id='{id}'";
+        public void UpdateName(int id, string newName = "newName")
+        {
+            string query = $"UPDATE Products SET name='{newName} WHERE id='{id}'";
 
-        //    if (OpenConnection() == true)
-        //    {
-        //        MySqlCommand command = new MySqlCommand(query, connection);
-        //        command.ExecuteNonQuery();
-        //        CloseConnection();
-        //    }
-        //}
-        public void Delete(List<int> id)
+            if (OpenConnection() == true)
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+        public void UpdateCalories(int id, Product newProduct)
+        {
+            string query = $"UPDATE products SET calories='{newProduct.Calories}, proteins='{newProduct.Proteins}', fats='{newProduct.Fats}', carbohydrates='{newProduct.Carbohydrates}' WHERE id='{id}'";
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+       
+
+        public void DeleteProduct(List<int> id)
         {
             for (int i = 0; i < id.Count; i++)
             {
@@ -111,7 +124,41 @@ namespace SportDiary
                 }
             }
         }
-        public List<string>[] Select()
+        public List<string>[] SelectSeveralProducts(string name) 
+        {
+            string query;
+            if (name == "")
+            {
+                query = "SELECT * FROM products;";
+                
+            }
+            else
+                query = $"SELECT * FROM products WHERE name ='{name}';";
+            List<string>[] list = new List<string>[3];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
+            list[2] = new List<string>();
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list[0].Add(reader["id"] + "");
+                    list[1].Add(reader["name"] + "");
+                    list[2].Add(reader["calories"] + "");
+                }
+                reader.Close();
+                CloseConnection();
+                return list;
+
+            }
+            else
+                return list;
+        }      
+        public List<string>[] SelectAllProducts()
         {
             string query = "SELECT * FROM products";
             List<string>[] list = new List<string>[3];
