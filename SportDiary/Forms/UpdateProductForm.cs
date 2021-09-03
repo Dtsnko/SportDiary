@@ -40,14 +40,11 @@ namespace SportDiary.Forms
             }
         }
 
-        private void listBoxProductsToUpdate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Update_Click(object sender, EventArgs e)
         {
-
+            int id = allId[listBoxProductsToUpdate.SelectedIndex];
+            EditProductForm edpr = new EditProductForm(id);
+            edpr.Show();
         }
     }
 }

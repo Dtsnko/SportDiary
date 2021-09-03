@@ -98,14 +98,16 @@ namespace SportDiary
         }
         public void UpdateCalories(int id, Product newProduct)
         {
-            string query = $"UPDATE products SET calories='{newProduct.Calories}, proteins='{newProduct.Proteins}', fats='{newProduct.Fats}', carbohydrates='{newProduct.Carbohydrates}' WHERE id='{id}'";
+            string query = $"UPDATE products SET calories='{newProduct.Calories}', proteins='{newProduct.Proteins}', fats='{newProduct.Fats}', carbohydrates='{newProduct.Carbohydrates}' WHERE id='{id}'";
 
             if (OpenConnection() == true)
             {
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.ExecuteNonQuery();
+                MessageBox.Show("Успешно отредактировано");
                 CloseConnection();
             }
+            
         }
        
 

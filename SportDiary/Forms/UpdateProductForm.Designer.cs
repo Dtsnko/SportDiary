@@ -29,11 +29,9 @@ namespace SportDiary.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.listBoxProductsToUpdate = new System.Windows.Forms.ListBox();
             this.Update = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -64,12 +62,6 @@ namespace SportDiary.Forms
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // listBoxProductsToUpdate
             // 
             this.listBoxProductsToUpdate.FormattingEnabled = true;
@@ -78,7 +70,6 @@ namespace SportDiary.Forms
             this.listBoxProductsToUpdate.Name = "listBoxProductsToUpdate";
             this.listBoxProductsToUpdate.Size = new System.Drawing.Size(278, 260);
             this.listBoxProductsToUpdate.TabIndex = 3;
-            this.listBoxProductsToUpdate.SelectedIndexChanged += new System.EventHandler(this.listBoxProductsToUpdate_SelectedIndexChanged);
             // 
             // Update
             // 
@@ -112,7 +103,6 @@ namespace SportDiary.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ListBox listBoxProductsToUpdate;
         private System.Windows.Forms.Button Update;
     }
