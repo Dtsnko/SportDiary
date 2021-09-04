@@ -20,7 +20,7 @@ namespace SportDiary.Forms
 
         private void ButtonAcceptNewProduct_Click(object sender, EventArgs e)
         {
-                Product newProduct = new Product(textBoxProductName.Text, numericUpDownCalories.Value, numericUpDownProteins.Value, numericUpDownFats.Value, numericUpDownCarbohydrates.Value);
+                Product newProduct = new Product(0, textBoxProductName.Text, numericUpDownCalories.Value, numericUpDownProteins.Value, numericUpDownFats.Value, numericUpDownCarbohydrates.Value);
                 DBProductsConnect db = new DBProductsConnect();
                 db.InsertProduct(newProduct);
                 Close();

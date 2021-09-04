@@ -10,6 +10,13 @@ namespace SportDiary
     public class Product
     {
         private string name;
+        private int id;
+        public int Id
+        {
+            get => id;
+            set { if (value >= 0) id = value; }
+        }
+        public decimal mass;
         public string Name {
             get { return name; } 
             set { 
@@ -60,8 +67,9 @@ namespace SportDiary
             }
         }
         public decimal controlBit;
-        public Product(string name, decimal calories, decimal proteins, decimal fats, decimal carbohydrates)
+        public Product(int id, string name, decimal calories, decimal proteins, decimal fats, decimal carbohydrates)
         {
+            Id = id;
             Name = name;
             Calories = calories;
             Fats = fats;

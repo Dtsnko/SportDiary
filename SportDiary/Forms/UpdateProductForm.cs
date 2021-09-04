@@ -42,6 +42,8 @@ namespace SportDiary.Forms
 
         private void Update_Click(object sender, EventArgs e)
         {
+            if (listBoxProductsToUpdate.SelectedIndex == null)
+                return;
             int id = allId[listBoxProductsToUpdate.SelectedIndex];
             EditProductForm edpr = new EditProductForm(id);
             edpr.Show();

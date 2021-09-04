@@ -130,10 +130,7 @@ namespace SportDiary
         {
             string query;
             if (name == "")
-            {
                 query = "SELECT * FROM products;";
-                
-            }
             else
                 query = $"SELECT * FROM products WHERE name ='{name}';";
             List<string>[] list = new List<string>[3];
@@ -163,10 +160,13 @@ namespace SportDiary
         public List<string>[] SelectAllProducts()
         {
             string query = "SELECT * FROM products";
-            List<string>[] list = new List<string>[3];
+            List<string>[] list = new List<string>[6];
             list[0] = new List<string>();
             list[1] = new List<string>();
             list[2] = new List<string>();
+            list[3] = new List<string>();
+            list[4] = new List<string>();
+            list[5] = new List<string>();
 
             if (OpenConnection() == true)
             {
@@ -178,6 +178,9 @@ namespace SportDiary
                     list[0].Add(reader["id"] + "");
                     list[1].Add(reader["name"] + "");
                     list[2].Add(reader["calories"] + "");
+                    list[3].Add(reader["proteins"] + "");
+                    list[4].Add(reader["fats"] + "");
+                    list[5].Add(reader["carbohydrates"] + "");
                 }
                 reader.Close();
                 CloseConnection();

@@ -89,11 +89,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddMealForm.cs">
+    <Compile Include="Forms\AddMeal\AddMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddMealForm.Designer.cs">
+    <Compile Include="Forms\AddMeal\AddMealForm.Designer.cs">
       <DependentUpon>AddMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddMeal\SelectMass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddMeal\SelectMass.Designer.cs">
+      <DependentUpon>SelectMass.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddProductForm.cs">
       <SubType>Form</SubType>
@@ -129,8 +135,11 @@
     <Compile Include="WorkClasses\Product.cs" />
     <Compile Include="WorkClasses\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddMealForm.resx">
+    <EmbeddedResource Include="Forms\AddMeal\AddMealForm.resx">
       <DependentUpon>AddMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddMeal\SelectMass.resx">
+      <DependentUpon>SelectMass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
