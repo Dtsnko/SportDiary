@@ -20,7 +20,7 @@ namespace SportDiary.Forms
             
             InitializeComponent();
             DBProductsConnect connect = new DBProductsConnect();
-            List<string>[] products = connect.SelectAllProducts();
+            List<string>[] products = connect.SelectProducts();
             for (int i = 0; i < products[0].Count; i++)
             {
                 listBoxProductsToUpdate.Items.Add(products[1][i] + " " + products[2][i] + "кал.");
@@ -33,7 +33,7 @@ namespace SportDiary.Forms
         {
             listBoxProductsToUpdate.Items.Clear();
             DBProductsConnect connect = new DBProductsConnect();
-            List<string>[] selectedItem = connect.SelectSeveralProducts(textBoxSearch.Text);
+            List<string>[] selectedItem = connect.SelectProducts(textBoxSearch.Text);
             for (int i = 0; i < selectedItem[0].Count; i++)
             {
                 listBoxProductsToUpdate.Items.Add(selectedItem[1][i] + " " + selectedItem[2][i] + "кал.");

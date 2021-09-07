@@ -18,9 +18,9 @@ namespace SportDiary.Forms
         {
             InitializeComponent();
             DBProductsConnect connect = new DBProductsConnect();
-            for (int i = 0; i < connect.SelectAllProducts()[0].Count; i++)
+            for (int i = 0; i < connect.SelectProducts()[0].Count; i++)
             {
-                allProd.Add(new Product(Convert.ToInt32(connect.SelectAllProducts()[0][i]), connect.SelectAllProducts()[1][i], Convert.ToDecimal(connect.SelectAllProducts()[2][i]), Convert.ToDecimal(connect.SelectAllProducts()[3][i]), Convert.ToDecimal(connect.SelectAllProducts()[4][i]), Convert.ToDecimal(connect.SelectAllProducts()[5][i])));
+                allProd.Add(new Product(Convert.ToInt32(connect.SelectProducts()[0][i]), connect.SelectProducts()[1][i], Convert.ToDecimal(connect.SelectProducts()[2][i]), Convert.ToDecimal(connect.SelectProducts()[3][i]), Convert.ToDecimal(connect.SelectProducts()[4][i]), Convert.ToDecimal(connect.SelectProducts()[5][i])));
                 ProductsToAdd.Items.Add(allProd[i].Name + " " + allProd[i].Calories + " кал.");
             }
         }
@@ -31,14 +31,19 @@ namespace SportDiary.Forms
             foreach(string s in ProductsToAdd.Items)
                 if (ProductsToAdd.CheckedItems.IndexOf(s) != -1)
                     indexes.Add(ProductsToAdd.Items.IndexOf(s));
-            foreach(int i in indexes)
+            foreach (int i in indexes)
             {
-                Product productWithMass = allProd[i];
-                SelectMass ProdMass = new SelectMass(ref productWithMass);
+                SelectMass ProdMass = new SelectMass();
                 ProdMass.Show();
-
+                
             }
-            
+
+            foreach (int i in indexes)
+            {
+                ProductsToAdd.Items.Remove(allProd[i].Name + " " + allProd[i].Calories + " кал.");
+                AddedProducts.Items.Add(allProd[i].Name + " " + allProd[i].Calories + " кал." + allProd[i].mass);
+            }
+
         }
     }
 }

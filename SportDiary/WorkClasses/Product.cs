@@ -78,6 +78,7 @@ namespace SportDiary
             controlBit = calories + proteins + fats + carbohydrates;
             
         }
+        
 
     }
 }

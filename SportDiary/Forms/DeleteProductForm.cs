@@ -17,7 +17,7 @@ namespace SportDiary.Forms
         {
             InitializeComponent();
             DBProductsConnect connect = new DBProductsConnect();
-            List<string>[] products = connect.SelectAllProducts();
+            List<string>[] products = connect.SelectProducts();
             for (int i = 0; i < products[0].Count; i++)
             {
                 listBoxOfProducts.Items.Add(products[1][i] + " " + products[2][i] + "кал.");

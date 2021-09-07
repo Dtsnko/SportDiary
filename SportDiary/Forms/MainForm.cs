@@ -21,8 +21,8 @@ namespace SportDiary
 
         private void AddNewMeat_Click(object sender, EventArgs e)
         {
-            AddMealForm addmeat = new AddMealForm();
-            addmeat.Show();
+            AddMealForm addmeal = new AddMealForm();
+            addmeal.Show();
         }
 
         private void AddNewProduct_Click(object sender, EventArgs e)

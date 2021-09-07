@@ -30,10 +30,10 @@ namespace SportDiary.Forms
         private void InitializeComponent()
         {
             this.AddButton = new System.Windows.Forms.Button();
-            this.ProductsToAdd = new System.Windows.Forms.CheckedListBox();
             this.AddedProducts = new System.Windows.Forms.CheckedListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.ProductsToAdd = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // AddButton
@@ -45,14 +45,6 @@ namespace SportDiary.Forms
             this.AddButton.Text = ">";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // ProductsToAdd
-            // 
-            this.ProductsToAdd.FormattingEnabled = true;
-            this.ProductsToAdd.Location = new System.Drawing.Point(23, 12);
-            this.ProductsToAdd.Name = "ProductsToAdd";
-            this.ProductsToAdd.Size = new System.Drawing.Size(219, 276);
-            this.ProductsToAdd.TabIndex = 2;
             // 
             // AddedProducts
             // 
@@ -80,6 +72,14 @@ namespace SportDiary.Forms
             this.RemoveButton.Text = "<";
             this.RemoveButton.UseVisualStyleBackColor = true;
             // 
+            // ProductsToAdd
+            // 
+            this.ProductsToAdd.FormattingEnabled = true;
+            this.ProductsToAdd.Location = new System.Drawing.Point(23, 12);
+            this.ProductsToAdd.Name = "ProductsToAdd";
+            this.ProductsToAdd.Size = new System.Drawing.Size(219, 276);
+            this.ProductsToAdd.TabIndex = 2;
+            // 
             // AddMealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -99,9 +99,9 @@ namespace SportDiary.Forms
         #endregion
 
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.CheckedListBox ProductsToAdd;
-        private System.Windows.Forms.CheckedListBox AddedProducts;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button RemoveButton;
+        public System.Windows.Forms.CheckedListBox AddedProducts;
+        public System.Windows.Forms.CheckedListBox ProductsToAdd;
     }
 }

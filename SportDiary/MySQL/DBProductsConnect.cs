@@ -126,7 +126,7 @@ namespace SportDiary
                 }
             }
         }
-        public List<string>[] SelectSeveralProducts(string name) 
+        public List<string>[] SelectProducts(string name) 
         {
             string query;
             if (name == "")
@@ -156,18 +156,13 @@ namespace SportDiary
             }
             else
                 return list;
-        }      
-        public List<string>[] SelectAllProducts()
+        }
+        public List<string>[] SelectProducts()
         {
             string query = "SELECT * FROM products";
             List<string>[] list = new List<string>[6];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
-            list[3] = new List<string>();
-            list[4] = new List<string>();
-            list[5] = new List<string>();
-
+            for (int i = 0; i < list.Length; i++)
+                list[i] = new List<string>();
             if (OpenConnection() == true)
             {
                 MySqlCommand command = new MySqlCommand(query, connection);

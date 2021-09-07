@@ -10,22 +10,23 @@ using System.Windows.Forms;
 
 namespace SportDiary.Forms.AddMeal
 {
-    public partial class SelectMass : Form
+    private partial class SelectMass : Form
     {
-        Product productWithMass;
-        public SelectMass(ref Product product)
+        Product prodWithMass;
+        public SelectMass(ref Product prodToAddMass)
         {
-            productWithMass = product;
             InitializeComponent();
             LabelSelectMass.AutoSize = true;
-            LabelSelectMass.Text = $"Укажите массу продукта \n '{productWithMass.Name}'";
+            LabelSelectMass.Text = $"Укажите массу \n '{prodToAddMass.Name}'";
+            prodWithMass = prodToAddMass;
             
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
 
-            productWithMass.mass = UpDownMass.Value;
+            prodWithMass.mass = UpDownMass.Value;
+            
         }
     }
 }
