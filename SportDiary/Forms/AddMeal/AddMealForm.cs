@@ -14,9 +14,12 @@ namespace SportDiary.Forms
     public partial class AddMealForm : Form
     {
         List<Product> allProd = new List<Product>();
+        List<Product> selectedProducts = new List<Product>();
+        int i = 0;
         public AddMealForm()
         {
             InitializeComponent();
+            
             DBProductsConnect connect = new DBProductsConnect();
             for (int i = 0; i < connect.SelectProducts()[0].Count; i++)
             {
@@ -27,22 +30,35 @@ namespace SportDiary.Forms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            List<int> indexes = new List<int>();
-            foreach(string s in ProductsToAdd.Items)
-                if (ProductsToAdd.CheckedItems.IndexOf(s) != -1)
-                    indexes.Add(ProductsToAdd.Items.IndexOf(s));
-            foreach (int i in indexes)
-            {
-                SelectMass ProdMass = new SelectMass();
-                ProdMass.Show();
-                
-            }
+            
+            selectedProducts.Add(allProd[ProductsToAdd.SelectedIndex]);
+            ProductsToAdd.Enabled = false;
+            AddedProducts.Enabled = false;
+            AddButton.Enabled = false;
+            AcceptButton.Enabled = false;
+            label1.Visible = true;
+            NumericUpDownMass.Visible = true;
+            AddMassButton.Visible = true;
 
-            foreach (int i in indexes)
-            {
-                ProductsToAdd.Items.Remove(allProd[i].Name + " " + allProd[i].Calories + " кал.");
-                AddedProducts.Items.Add(allProd[i].Name + " " + allProd[i].Calories + " кал." + allProd[i].mass);
-            }
+            
+            
+            
+
+        }
+
+        private void AddMassButton_Click(object sender, EventArgs e)
+        {
+            selectedProducts[i].mass = NumericUpDownMass.Value;
+            AddedProducts.Items.Add(selectedProducts[i].Name + " " + selectedProducts[i].mass + " грамм");
+            i++;
+            ProductsToAdd.Enabled = true;
+            AddedProducts.Enabled = true;
+            AddButton.Enabled = true;
+            AcceptButton.Enabled = true;
+            NumericUpDownMass.Visible = false;
+            AddMassButton.Visible = false;
+            label1.Visible = false;
+            
 
         }
     }

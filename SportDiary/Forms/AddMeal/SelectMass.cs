@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SportDiary.Forms.AddMeal
 {
-    private partial class SelectMass : Form
+    public partial class SelectMass : Form
     {
         Product prodWithMass;
         public SelectMass(ref Product prodToAddMass)
